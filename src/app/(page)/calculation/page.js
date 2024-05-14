@@ -1,4 +1,4 @@
-import InputBarang from "@/app/(page)/calculation/inputBarang";
+import InputBarang from "./inputBarang";
 import ParamFilter from "./paramFilter";
 
 export default function Calculation() {
