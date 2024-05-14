@@ -1,0 +1,88 @@
+"use client";
+
+const anggota_kelompok = [
+  {
+    nama: "Gagas Surya Laksana",
+    nim: "1301223164",
+    foto: "https://media.licdn.com/dms/image/D5603AQFv0PgBqyFA6g/profile-displayphoto-shrink_800_800/0/1704083603848?e=2147483647&v=beta&t=giooGgHt8HHTtRqI9UujA9lL2091zPURz8Fi2j1hh40",
+  },
+  {
+    nama: "Maulana Cahya Magista",
+    nim: "1301223240",
+    foto: "https://media.licdn.com/dms/image/D5603AQHCRmF4PjkaVQ/profile-displayphoto-shrink_800_800/0/1702109430676?e=2147483647&v=beta&t=C1QKO0b3pxBpql8hvScvSJU2aor0zEOD2wYrlgR9A00",
+  },
+  {
+    nama: "M. Rafi Raihan Akbar",
+    nim: "1301223219",
+    foto: "https://media.licdn.com/dms/image/D5603AQEsbWqz9Q-HJg/profile-displayphoto-shrink_800_800/0/1682314082546?e=2147483647&v=beta&t=urA9zAN9MCzrJEP3uSCreKB8phB468TLTbWpnbGn634",
+  },
+];
+
+export default function Header() {
+  return (
+    <>
+      <div className="flex items-center justify-between font-mono text-sm lg:flex border-black">
+        <div className="block">
+          <h1 className="text-4xl font-bold text-left">
+            TUBES STRATEGI ALGORITMA
+          </h1>
+          <p className="text-xl mt-1 text-left">
+            Greedy vs Divide and Conquer | <a class="underline decoration-sky-500">Kelompok 9</a>
+          </p>
+        </div>
+        <div className="flex w-auto justify-end">
+          <button
+            onClick={() => document.body.classList.toggle("dark")}
+            className="h-12 w-12 rounded-lg p-2 hover:bg-gray-200 dark:hover:bg-gray-600 bg-gray-100 dark:bg-gray-700"
+          >
+            <svg
+              className="fill-violet-700 block dark:hidden"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg
+              className="fill-yellow-500 hidden dark:block"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fillRule="evenodd"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      {/* make a cli box with list inside */}
+      <div className="border dark:border-2 border-gray-400 dark:border-gray-700 rounded-lg my-10 px-10 py-5">
+        <p className="text-2xl font-semibold mb-5 text-center sm:text-left">Anggota kelompok:</p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {anggota_kelompok.map((anggota) => (
+            <div className="group/item bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 p-3 rounded-lg dark:hover:bg-gray-600 hover:cursor-pointer">
+              <div class="flex-shrink-0 group block">
+                <div class="flex items-center">
+                  <img
+                    class="filter saturate-0 group-hover/item:saturate-100 inline-block flex-shrink-0 size-[62px] rounded-full"
+                    src={anggota.foto}
+                    alt="Image Description"
+                  />
+                  <div class="ms-3">
+                    <h3 class="font-semibold text-gray-800 dark:text-white">
+                      {anggota.nama}
+                    </h3>
+                    <p class="text-sm font-medium text-gray-800 dark:text-neutral-300">
+                      {anggota.nim}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
