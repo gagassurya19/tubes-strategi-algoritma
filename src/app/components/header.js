@@ -29,7 +29,12 @@ export default function Header() {
       <div className="flex items-center justify-between font-mono text-sm lg:flex mb-10">
         <div className="block">
           <h1 className="text-4xl font-bold text-left">
-            TUBES STRATEGI ALGORITMA
+            TUBES{" "}
+            <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 hover:before:-skew-y-0 hover:cursor-pointer before:bg-pink-500 relative inline-block ">
+              <span class="relative text-white">STRATEGI</span>
+            </span>{" "}
+            {/* STRATEGI{" "} */}
+            ALGORITMA
           </h1>
           <p className="text-xl mt-1 text-left">
             Greedy vs Divide and Conquer |{" "}
