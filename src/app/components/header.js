@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 
 const anggota_kelompok = [
   {
@@ -19,15 +20,19 @@ const anggota_kelompok = [
 ];
 
 export default function Header() {
+  const [active, setActive] = useState(false);
+  const handleClick = () => {
+    setActive(!active);
+  }
   return (
     <>
-      <div className="flex items-center justify-between font-mono text-sm lg:flex border-black">
+      <div className="flex items-center justify-between font-mono text-sm lg:flex border-black mb-10">
         <div className="block">
           <h1 className="text-4xl font-bold text-left">
             TUBES STRATEGI ALGORITMA
           </h1>
           <p className="text-xl mt-1 text-left">
-            Greedy vs Divide and Conquer | <a class="underline decoration-sky-500">Kelompok 9</a>
+            Greedy vs Divide and Conquer | <a class="underline decoration-sky-500 decoration-wavy hover:decoration-solid hover:cursor-pointer" onClick={() => handleClick()}>Kelompok 9</a>
           </p>
         </div>
         <div className="flex w-auto justify-end">
@@ -57,7 +62,8 @@ export default function Header() {
         </div>
       </div>
       {/* make a cli box with list inside */}
-      <div className="border dark:border-2 border-gray-400 dark:border-gray-700 rounded-lg my-10 px-10 py-5">
+      {active && (
+        <div className="border dark:border-2 border-gray-400 dark:border-gray-700 rounded-lg mb-10 px-10 py-5">
         <p className="text-2xl font-semibold mb-5 text-center sm:text-left">Anggota kelompok:</p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {anggota_kelompok.map((anggota) => (
@@ -83,6 +89,7 @@ export default function Header() {
           ))}
         </div>
       </div>
+      )}
     </>
   );
 }
