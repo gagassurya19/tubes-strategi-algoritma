@@ -22,6 +22,7 @@ export default function InputBarang() {
 
   const hapusBarang = (index) => {
     barang.splice(index, 1);
+    setBarang([...barang]);
     localStorage.setItem("barang", JSON.stringify(barang));
   };
 
@@ -166,7 +167,7 @@ export default function InputBarang() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-gray-400 dark:border-gray-700 pt-5">
               <div>
                 <label
-                  for="nama_barang"
+                  htmlFor="nama_barang"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Nama Barang
@@ -181,7 +182,7 @@ export default function InputBarang() {
               </div>
               <div>
                 <label
-                  for="foto"
+                  htmlFor="foto"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Foto
@@ -195,7 +196,7 @@ export default function InputBarang() {
               </div>
               <div>
                 <label
-                  for="harga"
+                  htmlFor="harga"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Harga/pcs
@@ -210,7 +211,7 @@ export default function InputBarang() {
               </div>
               <div>
                 <label
-                  for="stok"
+                  htmlFor="stok"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Stok
