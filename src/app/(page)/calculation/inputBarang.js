@@ -28,6 +28,27 @@ export default function InputBarang({ inputBarang }) {
     inputBarang([...barang]);
   };
 
+  const restoreData = () => {
+    localStorage.removeItem("barang")
+    const defaultBarang = [
+      {
+        nama: "Gelas",
+        harga: 10000,
+        stok: 10,
+        foto: "https://image1ws.indotrading.com/s3/productimages/webp/co205354/p923533/w600-h600/5e50fba5-3882-4d5c-8ff0-a367df004d46.png",
+      },
+      {
+        nama: "Piring",
+        harga: 5000,
+        stok: 5,
+        foto: "https://img.ws.mms.shopee.co.id/95981887682d474500a850bcb4bd01d4",
+      },
+    ];
+    setBarang(defaultBarang);
+    localStorage.setItem("barang", JSON.stringify(defaultBarang));
+    inputBarang(defaultBarang);
+  }
+
   useEffect(() => {
     const localBarang = localStorage.getItem("barang");
     if (localBarang) {
@@ -76,9 +97,18 @@ export default function InputBarang({ inputBarang }) {
           </button>
         </Modal> */}
       <div className="border dark:border-2 border-gray-400 dark:border-gray-700 w-full rounded-lg p-5">
-        <p className="text-xl font-semibold border-b border-gray-400 dark:border-gray-700">
-          LIST BARANG
-        </p>
+        <div className="flex flex-row justify-between">
+          <p className="text-xl font-semibold border-b border-gray-400 dark:border-gray-700 w-full">
+            LIST BARANG
+          </p>
+          <button
+            type="button"
+            className="inline-flex max-w-10 justify-center bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-lg px-3 py-2 ml-2"
+            onClick={() => restoreData()}
+          >
+           🔥
+          </button>
+        </div>
         <div className="grid grid-cols-1 gap-4 my-3">
           {barang.map((item, index) => (
             <div
