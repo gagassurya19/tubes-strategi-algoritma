@@ -2,7 +2,7 @@
 import Modal from "../../components/modal";
 import { useEffect, useState } from "react";
 
-export default function InputBarang() {
+export default function InputBarang({ inputBarang }) {
   const [isOpen, setOpen] = useState(false);
   const [isTambah, setTambah] = useState(false);
   const [barang, setBarang] = useState([]);
@@ -18,18 +18,21 @@ export default function InputBarang() {
     barang.push(newBarang);
     setTambah(!isTambah);
     localStorage.setItem("barang", JSON.stringify(barang));
+    inputBarang(barang);
   };
 
   const hapusBarang = (index) => {
     barang.splice(index, 1);
     setBarang([...barang]);
     localStorage.setItem("barang", JSON.stringify(barang));
+    inputBarang([...barang]);
   };
 
   useEffect(() => {
     const localBarang = localStorage.getItem("barang");
     if (localBarang) {
       setBarang(JSON.parse(localBarang));
+      inputBarang(JSON.parse(localBarang));
     } else {
       const defaultBarang = [
         {
@@ -47,6 +50,7 @@ export default function InputBarang() {
       ];
       setBarang(defaultBarang);
       localStorage.setItem("barang", JSON.stringify(defaultBarang));
+      inputBarang(defaultBarang);
     }
   }, []);
   return (
