@@ -44,6 +44,7 @@ export default function Header() {
             >
               Kelompok 9
             </a>
+            {" "}👈{" "}<span className="text-sm">click me!</span>
           </p>
         </div>
         <div className="flex w-auto justify-end">
