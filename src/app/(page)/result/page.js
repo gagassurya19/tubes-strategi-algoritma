@@ -40,7 +40,10 @@ export default function Result() {
       <div className="flex flex-col lg:flex-row w-full justify-between">
         <Greedy data={result.greedy} jumlah_barang={result.jumlah_barang} />
         <div className="divider lg:divider-horizontal text-xl font-semibold">
-          VS
+          {/* VS */}
+          <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 hover:before:-skew-y-0 hover:cursor-pointer before:bg-red-500 relative inline-block ">
+              <span className="relative text-white">VS</span>
+            </span>
         </div>
         <BruteForce
           data={result.bruteforce}
