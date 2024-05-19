@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { DataProvider } from "./utility/DataContext";
 import Calculation from "./(page)/calculation/page";
 import Result from "./(page)/result/page";
 import Header from "./components/header.js";
@@ -19,11 +20,11 @@ export default function Home() {
   });
   if (!isLoaded) return "Loading...";
   return (
-    <>
+    <DataProvider>
       <Header />
       <Calculation />
       <Result />
       <Footer />
-    </>
+    </DataProvider>
   );
 }

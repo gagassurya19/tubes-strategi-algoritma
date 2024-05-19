@@ -37,7 +37,7 @@ export default function Header() {
             ALGORITMA
           </h1>
           <p className="text-xl mt-1 text-left">
-            Greedy vs Divide and Conquer |{" "}
+            Greedy vs Brute Force |{" "}
             <a
               className="underline decoration-sky-500 decoration-wavy hover:decoration-solid hover:cursor-pointer"
               onClick={() => handleClick()}

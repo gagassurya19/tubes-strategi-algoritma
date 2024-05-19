@@ -1,16 +1,29 @@
-import Dnc from "./dnc";
+import { useContext  } from "react";
+import { DataContext } from "../../utility/DataContext";
+import { runAlgorithm, runAlgorithmWithLargeDatasetDemo } from "../../utility/Algorithm";
+
+import BruteForce from "./bruteforce";
 import Greedy from "./greedy";
 
+
 export default function Result() {
+  const { data } = useContext(DataContext);
+  if (data.length === 0) return null;
+  const params = data[0];
+  const barang = data[1];
+  let result;
+  result = runAlgorithm(params, barang);
+  // result = runAlgorithmWithLargeDatasetDemo(20); // max 20 otherwise CRASHH!
+  
   return (
     <div className="w-full justify-between mt-10">
       <p className="text-xl font-semibold border-b border-gray-400 dark:border-gray-700 mb-5">
-        RESULT
+        ANALASIS ALGORITMA
       </p>
       <div className="flex flex-col lg:flex-row w-full justify-between">
-        <Dnc />
-        <div className="divider lg:divider-horizontal">VS</div>
-        <Greedy />
+        <Greedy data={result.greedy} jumlah_barang={result.jumlah_barang}/>
+        <div className="divider lg:divider-horizontal text-xl font-semibold">VS</div>
+        <BruteForce data={result.bruteforce} jumlah_barang={result.jumlah_barang}/>
       </div>
     </div>
   );
