@@ -1,6 +1,7 @@
+"use client";
 import { createContext, useState } from 'react';
 
-const DataContext = createContext();
+const DataContext = createContext("");
 
 const DataProvider = ({ children }) => {
     const [data, setData] = useState([]);
