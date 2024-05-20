@@ -55,17 +55,18 @@ export default function BruteForce({ data, jumlah_barang }) {
           <div className="collapse-content px-10">
             <ul className="list-disc flex flex-col gap-y-3">
               <li>
-                <span className="font-bold block">Kompleksitas:</span> O(n⋅2 n
-                ), karena algoritma ini menghasilkan dan mengevaluasi semua
+                <span className="font-bold block">Kompleksitas:</span> 𝑂 ( !n ),
+                karena algoritma ini menghasilkan dan mengevaluasi semua
                 kemungkinan kombinasi barang. Ini menghasilkan waktu eksekusi
                 yang eksponensial karena harus memeriksa semua subset dari set
                 barang yang ada.
               </li>
               <li>
                 <span className="font-bold block">Waktu Eksekusi:</span> Sangat
-                lambat ({data.time.toFixed(2)}ms). Waktu eksekusi yang jauh lebih lama
-                dibandingkan dengan algoritma Greedy mencerminkan kompleksitas
-                eksponensialnya, terutama ketika jumlah barang meningkat.
+                lambat ({data.time.toFixed(2)}ms). Waktu eksekusi yang jauh
+                lebih lama dibandingkan dengan algoritma Greedy mencerminkan
+                kompleksitas eksponensialnya, terutama ketika jumlah barang
+                meningkat.
               </li>
             </ul>
           </div>

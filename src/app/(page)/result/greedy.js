@@ -56,8 +56,8 @@ export default function Greedy({ data, jumlah_barang }) {
             <ul className="list-disc flex flex-col gap-y-3">
               <li>
                 <span className="font-bold block">Kompleksitas:</span> 𝑂 ( 𝑛 log
-                ⁡ 𝑛 ) O(nlogn), di mana 𝑛 n adalah jumlah barang. Kompleksitas
-                ini berasal dari langkah pengurutan barang berdasarkan harga.
+                ⁡ 𝑛 ), di mana 𝑛 n adalah jumlah barang. Kompleksitas ini
+                berasal dari langkah pengurutan barang berdasarkan harga.
               </li>
               <li>
                 <span className="font-bold block">Waktu Eksekusi:</span> Sangat

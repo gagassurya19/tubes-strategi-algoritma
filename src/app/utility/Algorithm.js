@@ -174,12 +174,15 @@ export const runAlgorithm = (params, barang) => {
 // console.log("Brute Force Time:", bruteforceResult.time, "ms");
 
 // WITH LARGE DATASET GENERATOR
-const createLargeDataset = (numItems) => {
+export const createLargeDataset = (numItems) => {
   const items = [];
   for (let i = 1; i <= numItems; i++) {
+    const randomPrice = Math.floor(Math.random() * 12000) + 5000;
+    const roundedPrice = Math.floor(randomPrice / 500) * 500;
+
     items.push({
       nama: `Item${i}`,
-      harga: Math.floor(Math.random() * 100) + 1, // Random price between 1 and 100
+      harga: roundedPrice, // Rounded price to the nearest 500
       stok: Math.floor(Math.random() * 10) + 1, // Random stock between 1 and 10
     });
   }
