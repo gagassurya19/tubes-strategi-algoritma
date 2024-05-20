@@ -272,9 +272,10 @@ export default function InputBarang({ inputBarang }) {
                   </div>
                 ))}
                 {barang.length === 0 && (
-                  <div className="text-center text-gray-500 dark:text-gray-400">
-                    <p>Barang kosong! tolong isi dulu yaa ^_^</p>
-                  </div>
+                  <div className="flex items-center justify-center h-56 text-center text-gray-500 dark:text-gray-400">
+                  <p>Barang kosong!<br/>Tolong isi dulu yaa ^_^</p>
+                </div>
+                
                 )}
               </div>
             </div>
