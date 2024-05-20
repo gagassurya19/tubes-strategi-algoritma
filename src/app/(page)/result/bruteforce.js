@@ -1,3 +1,5 @@
+import { formatToCurrency } from "../../utility/currencyFormater";
+
 export default function BruteForce({ data, jumlah_barang }) {
   return (
     <div className="border dark:border-2 border-gray-400 dark:border-gray-700 w-full rounded-lg p-5">
@@ -23,9 +25,9 @@ export default function BruteForce({ data, jumlah_barang }) {
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{item.nama}</td>
-                <td>{item.harga}</td>
+                <td>{formatToCurrency(item.harga)}</td>
                 <td>{item.jumlah}</td>
-                <td>{item.harga_total}</td>
+                <td>{formatToCurrency(item.harga_total)}</td>
               </tr>
             ))}
           </tbody>
@@ -35,13 +37,13 @@ export default function BruteForce({ data, jumlah_barang }) {
                 Total
               </td>
               <td>{data.result.total_jumlah_semua}</td>
-              <td>{data.result.total_harga_semua}</td>
+              <td>{formatToCurrency(data.result.total_harga_semua)}</td>
             </tr>
             <tr className="text-black dark:text-white">
               <td colSpan="3" className="text-right">
                 Modal Sisa
               </td>
-              <td>{data.result.sisa_modal}</td>
+              <td>{formatToCurrency(data.result.sisa_modal)}</td>
             </tr>
           </tfoot>
         </table>
@@ -79,16 +81,16 @@ export default function BruteForce({ data, jumlah_barang }) {
           <div className="collapse-content px-10">
             <ul className="list-disc flex flex-col gap-y-3">
               <li>
-                <span className="font-bold">Total Harga:</span>{" "}
-                {data.result.total_harga_semua}
-              </li>
-              <li>
                 <span className="font-bold">Total Jumlah Barang:</span>{" "}
                 {data.result.total_jumlah_semua}
               </li>
               <li>
-                <span className="font-bold">Sisa Modal:</span> Rp
-                {data.result.sisa_modal}
+                <span className="font-bold">Total Harga:</span>{" "}Rp
+                {formatToCurrency(data.result.total_harga_semua)}
+              </li>
+              <li>
+                <span className="font-bold">Sisa Modal:</span>{" "}Rp
+                {formatToCurrency(data.result.sisa_modal)}
               </li>
               <li>
                 <span className="font-bold block">Barang yang Dibeli:</span>{" "}

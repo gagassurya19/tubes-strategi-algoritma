@@ -3,6 +3,7 @@ import Modal from "../../components/modal";
 import { useEffect, useState } from "react";
 import { createLargeDataset } from "../../utility/Algorithm";
 import { create } from "domain";
+import { formatToCurrency } from "../../utility/currencyFormater";
 
 export default function InputBarang({ inputBarang }) {
   const [isOpen, setOpen] = useState(false);
@@ -144,7 +145,10 @@ export default function InputBarang({ inputBarang }) {
                   className="block my-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Jumlah Barang (max 20 or{" "}
-                  <div className="tooltip underline hover:cursor-pointer" data-tip="Tergantung pada ketersediaan memory dan spesifikasi pada komputer anda.">
+                  <div
+                    className="tooltip underline hover:cursor-pointer"
+                    data-tip="Tergantung pada ketersediaan memory dan spesifikasi pada komputer anda."
+                  >
                     CRASH!
                   </div>
                   )
@@ -200,7 +204,7 @@ export default function InputBarang({ inputBarang }) {
 
         {!withGenerator && (
           <>
-            <div className="overflow-x-auto h-80 mb-3 sm:mb-0">
+            <div className="overflow-x-auto h-80 my-3">
               <div className="grid grid-cols-1 gap-4 my-3">
                 {barang.map((item, index) => (
                   <div
@@ -219,7 +223,7 @@ export default function InputBarang({ inputBarang }) {
                             {item.nama}
                           </h3>
                           <p className="text-sm font-medium text-gray-800 dark:text-neutral-300">
-                            Harga: Rp{item.harga}
+                            Harga: Rp{formatToCurrency(item.harga)}
                           </p>
                           <p className="text-sm font-medium text-red-800 dark:text-red-300">
                             Stok: {item.stok}
@@ -273,9 +277,12 @@ export default function InputBarang({ inputBarang }) {
                 ))}
                 {barang.length === 0 && (
                   <div className="flex items-center justify-center h-56 text-center text-gray-500 dark:text-gray-400">
-                  <p>Barang kosong!<br/>Tolong isi dulu yaa ^_^</p>
-                </div>
-                
+                    <p>
+                      Barang kosong!
+                      <br />
+                      Tolong isi dulu yaa ^_^
+                    </p>
+                  </div>
                 )}
               </div>
             </div>
