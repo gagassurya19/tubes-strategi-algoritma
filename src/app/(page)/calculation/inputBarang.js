@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { createLargeDataset } from "../../utility/Algorithm";
 import { create } from "domain";
 import { formatToCurrency } from "../../utility/currencyFormater";
-import { event } from "../../utility/GoogleAnalytics";
 
 export default function InputBarang({ inputBarang }) {
   const [isOpen, setOpen] = useState(false);
@@ -25,13 +24,6 @@ export default function InputBarang({ inputBarang }) {
     setTambah(!isTambah);
     localStorage.setItem("barang", JSON.stringify(barang));
     inputBarang(barang);
-
-    event({
-      action: 'tambah_barang',
-      category: 'inputBarang',
-      label: 'add',
-      value: 'active: true',
-    })
   };
 
   const hapusBarang = (index) => {
@@ -64,12 +56,6 @@ export default function InputBarang({ inputBarang }) {
 
   const withDataGenerator = () => {
     setWithGenerator(!withGenerator);
-    event({
-      action: 'pake_generator',
-      category: 'inputBarang',
-      label: 'generator',
-      value: 'active: true',
-    })
   };
 
   const genereateData = (e) => {
