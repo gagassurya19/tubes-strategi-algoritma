@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { event } from "../utility/GoogleAnalytics";
 
 const anggota_kelompok = [
   {
@@ -23,6 +24,12 @@ export default function Header() {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive(!active);
+    event({
+      action: 'ngintip_kelompok',
+      category: 'header',
+      label: 'click me!',
+      value: 'active: true',
+    })
   };
   return (
     <>

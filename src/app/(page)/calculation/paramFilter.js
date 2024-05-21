@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { DataContext } from "../../utility/DataContext";
+import { event } from "../../utility/GoogleAnalytics";
 
 export default function ParamFilter({ barang }) {
   const { setData } = useContext(DataContext);
@@ -14,6 +15,12 @@ export default function ParamFilter({ barang }) {
       variasi: parseInt(v.target.variasi.value),
     };
     setData([parameter, barang])
+    event({
+      action: 'terapkan_parameter',
+      category: 'parameter',
+      label: 'Parameter filter barang',
+      value: 'terapkan_parameter',
+    })
   };
 
   return (
