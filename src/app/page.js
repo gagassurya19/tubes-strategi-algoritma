@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { DataProvider } from "./utility/DataContext";
 import Calculation from "./(page)/calculation/page";
 import Result from "./(page)/result/page";
+import Code from "./(page)/code/page";
+
 import Header from "./components/header.js";
 import Footer from "./components/footer.js";
 
@@ -24,6 +26,7 @@ export default function Home() {
       <Header />
       <Calculation />
       <Result />
+      <Code />
       <Footer />
     </DataProvider>
   );
