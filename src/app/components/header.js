@@ -49,7 +49,7 @@ export default function Header() {
               className="underline decoration-sky-500 decoration-wavy hover:decoration-solid hover:cursor-pointer"
               onClick={() => handleClick()}
             >
-              Kelompok 9
+              Kelompok 10
             </a>
             {" "}👈{" "}<span className="text-sm">click me!</span>
           </p>
